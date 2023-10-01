@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bar chart with text labels. Set domain to make the frame cover the labels.",
+    "width": 300,
+    "height": 150,
+    "title": "10 Most Successful Constructors in F1",
+    "data": {
+      "values": [
+        {"Constructors": "Ferrari", "Wins": 243},
+        {"Constructors": "McLaren", "Wins": 183},
+        {"Constructors": "Mercedes", "Wins": 125},
+        {"Constructors": "Williams", "Wins": 114},
+        {"Constructors": "Red Bull", "Wins": 107},
+        {"Constructors": "Lotus", "Wins": 79},
+        {"Constructors": "Brabham", "Wins": 35},
+        {"Constructors": "Renault", "Wins": 35},
+        {"Constructors": "Benetton", "Wins": 27 }
+        
+      ]
+    },
+    "encoding": {
+      "y": {"field": "Constructors", "type": "nominal"},
+      "x": {"field": "Wins", "type": "quantitative", "scale": {"domain": [0, 250]}},
+      "color": {
+        "field": "Constructors",
+        "type": "ordinal",
+        "scale": {
+          "domain": ["Ferrari", "McLaren", "Mercedes", "Williams", "Red Bull", "Lotus", "Brabham", "Renault", "Benetton"],
+          "range": ["#ff2800","#ff8000","#00A19B","#00A0DE","#003773","#013220", "#023020", "#d4af37", "#2E3192"]
+        }
+      }
+    },
+    "layer": [{
+      "mark": "bar"
+    }, {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 2
+      },
+      "encoding": {
+        "text": {"field": "Wins", "type": "quantitative"}
+      }
+    }]
+  }  
